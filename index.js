@@ -19,7 +19,11 @@ const port = process.env.PORT || 8000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "https://contact-app-otp.onrender.com"],
+  })
+);
 
 app.get("/", (req, res) => {
   res.json("Welcome to contact app.");
