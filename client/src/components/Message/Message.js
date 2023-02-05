@@ -10,7 +10,7 @@ const Message = () => {
 
   useEffect(() => {
     axios
-      .get("/messages")
+      .get("messages")
       .then((response) => {
         const messages = response.data.reverse();
         setMessages(messages);
