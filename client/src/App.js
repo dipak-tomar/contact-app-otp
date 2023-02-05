@@ -32,13 +32,13 @@ function App() {
             <ul className="navbar-nav mr-auto">
               <li className="nav-item active">
                 <a className="nav-link" href="/contacts">
-                  Contact<span className="sr-only">(current)</span>
+                  Contact
                 </a>
               </li>
 
               <li className="nav-item active">
                 <a className="nav-link" href="/messages">
-                  Message<span className="sr-only">(current)</span>
+                  Message
                 </a>
               </li>
             </ul>
