@@ -42,7 +42,6 @@ const AddContact = () => {
     });
   };
 
-  console.log(contact);
   const handleMobileChange = (e) => {
     const mobileNo = e.target.value;
     if (validator.isNumeric(mobileNo)) {

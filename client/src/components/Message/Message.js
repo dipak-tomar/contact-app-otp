@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "../../config/api";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Message = () => {
@@ -14,7 +14,6 @@ const Message = () => {
       .then((response) => {
         const messages = response.data.reverse();
         setMessages(messages);
-        console.log("Message", messages);
       })
       .catch((err) => {
         console.log(err);
@@ -61,13 +60,13 @@ const Message = () => {
                 <td>{message.createdAt}</td>
                 <td>{message.message}</td>
                 <td>
-                  <a
-                    href={`/messages/${message._id}`}
+                  <Link
+                    to={`/messages/${message._id}`}
                     className="btn btn-outline-primary"
                   >
                     {" "}
                     Info{" "}
-                  </a>
+                  </Link>
                 </td>
                 <td>
                   {

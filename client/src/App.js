@@ -1,6 +1,6 @@
 import "./App.css";
 import Home from "./components/Home";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import AddContact from "./components/Contact/AddContact";
 import ContactList from "./components/Contact/ContactList";
 import ContactInfo from "./components/Contact/ContactInfo";
@@ -13,9 +13,9 @@ function App() {
     <>
       <BrowserRouter>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <a className="navbar-brand" href="/">
+          <Link className="navbar-brand" to="/">
             Home
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -31,15 +31,14 @@ function App() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item active">
-                <a className="nav-link" href="/contacts">
-                  Contact <span className="sr-only">(current)</span>
-                </a>
+                <Link className="nav-link navbar-brand" to="/contacts">
+                  Contact
+                </Link>
               </li>
-
               <li className="nav-item active">
-                <a className="nav-link" href="/messages">
-                  Message <span className="sr-only">(current)</span>
-                </a>
+                <Link className="nav-link navbar-brand" to="/messages">
+                  Message
+                </Link>
               </li>
             </ul>
           </div>

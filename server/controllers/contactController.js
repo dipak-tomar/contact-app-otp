@@ -2,7 +2,6 @@ const Contact = require("../models/contact");
 
 module.exports.create = (req, res) => {
   const body = req.body;
-  console.log(body);
   const contact = new Contact(body);
 
   contact

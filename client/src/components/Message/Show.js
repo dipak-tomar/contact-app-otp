@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "../../config/api";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 const Show = () => {
   const [messages, setMessages] = useState([]);
@@ -13,7 +13,6 @@ const Show = () => {
       .then((response) => {
         const messages = response.data;
         setMessages(messages);
-        console.log("messages", messages);
       })
       .catch((err) => {
         console.log(err);
@@ -44,9 +43,9 @@ const Show = () => {
           Time :- {messages.createdAt}
         </li>
       </ul>
-      <a href="/messages" className="badge badge-warning">
-        Back to Contacts
-      </a>
+      <div className="badge badge-warning">
+        <Link to="/messages">Back to Messages</Link>
+      </div>
     </div>
   );
 };

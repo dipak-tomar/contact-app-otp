@@ -5,14 +5,13 @@ import { Link, useParams } from "react-router-dom";
 const ContactInfo = () => {
   const [contacts, setContacts] = useState([]);
   const { id } = useParams();
-  console.log(id);
+
   useEffect(() => {
     axios
       .get(`/contacts/${id}`)
       .then((response) => {
         const contacts = response.data;
         setContacts(contacts);
-        console.log("Contacts", contacts);
       })
       .catch((err) => {
         console.log(err);

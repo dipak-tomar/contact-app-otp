@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "../../config/api";
 import Swal from "sweetalert2";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 const ComposeContact = () => {
   const [contacts, setContacts] = useState([]);
@@ -13,7 +13,6 @@ const ComposeContact = () => {
       .then((response) => {
         const contacts = response.data;
         setContacts(contacts);
-        console.log("Contacts", contacts);
       })
       .catch((err) => {
         console.log(err);
@@ -21,7 +20,6 @@ const ComposeContact = () => {
   }, [id]);
 
   const handleClick = (e) => {
-    const formDatas = e.target.value;
     const formData = {
       name: `${contacts.firstName} ${contacts.lastName}`,
       mobile: contacts.mobile,
@@ -29,7 +27,6 @@ const ComposeContact = () => {
       createdAt: Date(),
     };
     setContacts(formData);
-    console.log("Form", formData, "2", formDatas);
 
     axios.post("/messages", formData).then((response) => {
       const formData = response.data;
@@ -42,10 +39,8 @@ const ComposeContact = () => {
       showConfirmButton: false,
       timer: 1500,
     });
-
-    console.log(contacts);
   };
-  console.log(contacts);
+
   return (
     <div style={{ textAlign: "center", margin: "60px 0px 0px 0px" }}>
       <p className="font-weight-bold">Message : </p>
@@ -76,9 +71,9 @@ const ComposeContact = () => {
       </button>{" "}
       <br />
       <br />
-      <a href="/contacts" className="badge badge-warning">
-        Back to Contacts
-      </a>
+      <div className="badge badge-warning">
+        <Link to="/messages">Back to Contacts</Link>
+      </div>
     </div>
   );
 };
