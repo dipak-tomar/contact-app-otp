@@ -39,6 +39,9 @@ function App() {
                 <Link className="nav-link navbar-brand" to="/messages">
                   Message
                 </Link>
+                <Link className="nav-link navbar-brand" to="/messages">
+                  Message
+                </Link>
               </li>
             </ul>
           </div>
